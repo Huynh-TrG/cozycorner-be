@@ -9,7 +9,7 @@ const port = 8000;
 const cors = require("cors");
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: "https://cozycorner-woad.vercel.app",
     credentials: true, // cho phép gửi cookie
   })
 );
@@ -27,8 +27,11 @@ const route = require("./routes");
 route(app);
 
 // config database
-const db = require("./config/database");
+const db = require("./configs/dbconfigs");
 db.connect();
+app.get("/", (req, res) => {
+  res.send("Hello World!");
+});
 
 app.listen(port, () => {
   console.log(`Server app listening on port ${port}`);
