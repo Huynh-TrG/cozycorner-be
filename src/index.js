@@ -3,7 +3,7 @@ const express = require("express");
 const app = express();
 const cookieParser = require("cookie-parser");
 // config port
-const port = 8000;
+const PORT = process.env.PORT || 5001;
 
 // config cors
 const cors = require("cors");
@@ -33,6 +33,6 @@ app.get("/", (req, res) => {
   res.send("Hello World!");
 });
 
-app.listen(port, () => {
-  console.log(`Server app listening on port ${port}`);
+app.listen(PORT, () => {
+  console.log(`Server app listening on port ${PORT}`);
 });
